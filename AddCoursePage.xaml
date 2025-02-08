@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcademicTracker.AddCoursePage"
+             Title="Add New Course">
+    <VerticalStackLayout>
+        <Label Text="Course Title" />
+        <Entry x:Name="TitleEntry" Placeholder="Enter course title" />
+
+        <Label Text="Start Date" />
+        <DatePicker x:Name="StartDatePicker" />
+
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Enable Start Date Alert" VerticalOptions="Center" />
+            <Switch x:Name="AlertStartSwitch" HorizontalOptions="EndAndExpand" />
+        </HorizontalStackLayout>
+
+        <Label Text="End Date" />
+        <DatePicker x:Name="EndDatePicker" />
+
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Enable End Date Alert" VerticalOptions="Center" />
+            <Switch x:Name="AlertEndSwitch" HorizontalOptions="EndAndExpand" />
+        </HorizontalStackLayout>
+
+        <Label Text="Status" />
+        <Picker x:Name="StatusPicker">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>In Progress</x:String>
+                    <x:String>Completed</x:String>
+                    <x:String>Planned</x:String>
+                    <x:String>Dropped</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Instructor Name" />
+        <Entry x:Name="InstructorNameEntry" Placeholder="Enter instructor's name" />
+
+        <Label Text="Instructor Phone" />
+        <Entry x:Name="InstructorPhoneEntry" Placeholder="Enter instructor's phone" Keyboard="Telephone" />
+
+        <Label Text="Instructor Email" />
+        <Entry x:Name="InstructorEmailEntry" Placeholder="Enter instructor's email" Keyboard="Email" />
+
+        <Label Text="Notes" />
+        <Editor x:Name="NotesEditor" Placeholder="Additional notes" HeightRequest="100"/>
+
+        <Button Text="Save Course" Clicked="OnSaveCourseClicked" Margin="0,0,0,10"/>
+        <Button Text="Cancel" Clicked="OnCancelCourseClicked" />
+    </VerticalStackLayout>
+</ContentPage>

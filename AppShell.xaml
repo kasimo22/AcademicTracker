@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AcademicTracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AcademicTracker"
+    Shell.FlyoutBehavior="Flyout"
+    Title="AcademicTracker">
+
+    <!-- Home -->
+    <FlyoutItem Title="Home" Icon="home.png">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    </FlyoutItem>
+
+    <!-- Courses -->
+    <FlyoutItem Title="Courses" Icon="courses.png">
+        <ShellContent Title="Courses" ContentTemplate="{DataTemplate local:CoursePage}" Route="Courses" />
+    </FlyoutItem>
+
+    <!-- Add Term -->
+    <FlyoutItem Title="Add Term" Icon="terms.png">
+        <ShellContent Title="Add Term" ContentTemplate="{DataTemplate local:AddTermPage}" Route="AddTermPage" />
+    </FlyoutItem>
+
+</Shell>

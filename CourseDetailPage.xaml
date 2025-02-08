@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AcademicTracker"
+             x:Class="AcademicTracker.CourseDetailPage"
+             Title="Course Details">
+    <Grid>
+        <!-- View Layout -->
+        <VerticalStackLayout x:Name="ViewLayout" Padding="10" IsVisible="True">
+            <Label Text="Course Name" FontAttributes="Bold" />
+            <Label Text="{Binding Title}" />
+
+            <Label Text="Start Date" FontAttributes="Bold" />
+            <Label Text="{Binding StartDate, StringFormat='{0:MMMM dd, yyyy}'}" />
+
+            <Label Text="End Date" FontAttributes="Bold" />
+            <Label Text="{Binding EndDate, StringFormat='{0:MMMM dd, yyyy}'}" />
+
+            <Label Text="Status" FontAttributes="Bold" />
+            <Label Text="{Binding Status}" />
+
+            <Label Text="Instructor Name" FontAttributes="Bold" />
+            <Label Text="{Binding InstructorName}" />
+
+            <Label Text="Instructor Phone" FontAttributes="Bold" />
+            <Label Text="{Binding InstructorPhone}" />
+
+            <Label Text="Instructor Email" FontAttributes="Bold" />
+            <Label Text="{Binding InstructorEmail}" />
+
+            <Label Text="Notes" FontAttributes="Bold" />
+            <Label Text="{Binding Notes}" />
+
+            <Label Text="Start Date Alert On?" FontAttributes="Bold" />
+            <Label Text="{Binding AlertStart}" />
+
+            <Label Text="End Date Alert On?" FontAttributes="Bold" />
+            <Label Text="{Binding AlertEnd}" />
+
+            <Button Text="Edit Course" Clicked="OnEditClicked" Margin="0,0,0,10" />
+            <Button Text="Delete Course" Clicked="OnDeleteClicked" Margin="0,0,0,10" />
+            <Button Text="View Assessments" Clicked="OnViewAssessmentsClicked" Margin="0,0,0,10" />
+            <Button Text="Share Course Notes" Clicked="OnShareNotesClicked" Margin="0,0,0,10" />
+            <Button Text="Go to Home" Clicked="GoHomeClicked" />
+        </VerticalStackLayout>
+
+        <!-- Edit Layout -->
+        <VerticalStackLayout x:Name="EditLayout" Padding="10" IsVisible="False">
+            <Label Text="Course Name" />
+            <Entry Text="{Binding Title}" />
+
+            <Label Text="Start Date" />
+            <DatePicker Date="{Binding StartDate}" />
+
+            <Label Text="End Date" />
+            <DatePicker Date="{Binding EndDate}" />
+
+            <Label Text="Status" />
+            <Picker x:Name="StatusPicker" SelectedItem="{Binding Status}" />
+
+            <Label Text="Instructor Name" />
+            <Entry Text="{Binding InstructorName}" />
+
+            <Label Text="Instructor Phone" />
+            <Entry Text="{Binding InstructorPhone}" />
+
+            <Label Text="Instructor Email" />
+            <Entry Text="{Binding InstructorEmail}" />
+
+            <Label Text="Notes" />
+            <Editor Text="{Binding Notes}" />
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Enable Start Date Alert" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding AlertStart}" HorizontalOptions="EndAndExpand" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Enable End Date Alert" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding AlertEnd}" HorizontalOptions="EndAndExpand" />
+            </HorizontalStackLayout>
+
+            <Button Text="Save" Clicked="OnSaveClicked" Margin="0,0,0,10" />
+            <Button Text="Cancel" Clicked="OnCancelClicked" />
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

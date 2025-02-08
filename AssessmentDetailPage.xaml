@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AcademicTracker"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="AcademicTracker.AssessmentDetailPage"
+             Title="Course Assessment Details">
+
+    <VerticalStackLayout Spacing="20" Padding="15">
+
+        <!-- Assessment Title -->
+        <Label Text="Assessment Title" FontAttributes="Bold" />
+        <Entry Placeholder="Enter assessment title" Text="{Binding Title}" />
+
+        <!-- Assessment Type -->
+        <Label Text="Assessment Type" FontAttributes="Bold" />
+        <Picker Title="Select Type" SelectedItem="{Binding Type}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Objective</x:String>
+                    <x:String>Performance</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <!-- Start Date -->
+        <Label Text="Start Date" FontAttributes="Bold" />
+        <DatePicker Date="{Binding StartDate}" MinimumDate="{x:Static sys:DateTime.Today}" />
+
+        <!-- Enable Start Date Alert with Toggle -->
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Enable Start Date Alert" VerticalOptions="Center" />
+            <Switch IsToggled="{Binding AlertStart}" HorizontalOptions="EndAndExpand" />
+        </HorizontalStackLayout>
+
+        <!-- End Date -->
+        <Label Text="Due Date" FontAttributes="Bold" />
+        <DatePicker Date="{Binding EndDate}" MinimumDate="{x:Static sys:DateTime.Today}" />
+
+        <!-- Enable End Date Alert with Toggle -->
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Enable End Date Alert" VerticalOptions="Center" />
+            <Switch IsToggled="{Binding AlertEnd}" HorizontalOptions="EndAndExpand" />
+        </HorizontalStackLayout>
+
+        <!-- Save Button -->
+        <Button Text="Save" Clicked="OnSaveClicked" />
+
+        <!-- Delete Button -->
+        <Button x:Name="DeleteButton" Text="Delete" Clicked="OnDeleteClicked" IsVisible="False" />
+
+    </VerticalStackLayout>
+</ContentPage>

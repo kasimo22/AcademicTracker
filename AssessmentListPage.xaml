@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AcademicTracker"
+             x:Class="AcademicTracker.AssessmentListPage"
+             Title="Assessment List">
+    <VerticalStackLayout>
+        <!-- Header -->
+        <Label Text="Course Assessments" 
+               FontSize="24"
+               HorizontalOptions="Center" 
+               Margin="0,10,0,20" />
+
+        <!-- Assessments List -->
+        <ListView x:Name="AssessmentsListView"
+                  ItemSelected="OnAssessmentSelected"
+                  SeparatorVisibility="Default"
+                  Margin="10"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Assessment">
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="5">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium" />
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Label Text="{Binding EndDate, StringFormat='Due: {0:MMMM dd, yyyy}'}" />
+                                <Label Text="|   Type:" />
+                                <Label Text="{Binding Type}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Add Assessment Button -->
+        <Button Text="Add New Assessment"
+                Margin="0,20,0,0"
+                Clicked="OnAddAssessmentClicked" />
+    </VerticalStackLayout>
+</ContentPage>
